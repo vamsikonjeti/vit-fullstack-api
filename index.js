@@ -27,6 +27,7 @@ app.post('/bfhl', (req, res) => {
         const odd_numbers = [];
         const even_numbers = [];
         const alphabets = [];
+        const special_characters = []; // Added array for special characters
         let sum = 0;
         let alphabet_string = "";
 
@@ -47,8 +48,10 @@ app.post('/bfhl', (req, res) => {
                 alphabets.push(item.toUpperCase());
                 alphabet_string += item;
             }
-            // Note: Special characters are not explicitly handled as per the logic description,
-            // but you could add an 'else' block here to collect them if needed.
+            // If it's not a number or an alphabet, it's a special character
+            else {
+                special_characters.push(item);
+            }
         });
 
         // --- Alternating Caps Logic ---
@@ -76,6 +79,7 @@ app.post('/bfhl', (req, res) => {
             odd_numbers: odd_numbers,
             even_numbers: even_numbers,
             alphabets: alphabets,
+            special_characters: special_characters, // Added to the response
             sum: String(sum),
             concat_string: concat_string
         };
