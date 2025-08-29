@@ -18,7 +18,7 @@ app.post('/bfhl', (req, res) => {
 
         // --- User Information ---
         // NOTE: Replace these with your actual details
-        const fullName = "KONJETI SURENDRA VAMSI";
+        const fullName = "konjeti_surendra_vamsi";
         const dob = "30052005"; // DDMMYYYY format
         const email = "surendra.22bce7369@vitapstudent.ac.in";
         const rollNumber = "22BCE7369";
