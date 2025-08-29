@@ -1,3 +1,4 @@
+// Import the express library to create and manage the server
 const express = require('express');
 // Import the body-parser middleware to handle JSON request bodies
 const bodyParser = require('body-parser');
@@ -17,8 +18,7 @@ app.post('/bfhl', (req, res) => {
         const data = req.body.data;
 
         // --- User Information ---
-        // NOTE: Replace these with your actual details
-        const fullName = "konjeti_surendra_vamsi";
+        const fullName = "KONJETI SURENDRA VAMSI";
         const dob = "30052005"; // DDMMYYYY format
         const email = "surendra.22bce7369@vitapstudent.ac.in";
         const rollNumber = "22BCE7369";
@@ -65,9 +65,12 @@ app.post('/bfhl', (req, res) => {
         }
 
         // --- Construct the Response Object ---
+        // Convert fullName to lowercase and replace spaces with underscores for the user_id
+        const userIdFormatted = fullName.toLowerCase().replace(/\s/g, '_');
+        
         const response = {
             is_success: true,
-            user_id: `${fullName}_${dob}`,
+            user_id: `${userIdFormatted}_${dob}`,
             email: email,
             roll_number: rollNumber,
             odd_numbers: odd_numbers,
